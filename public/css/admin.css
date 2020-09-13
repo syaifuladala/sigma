@@ -1,0 +1,172 @@
+body {
+    background: white;
+    font-family: "Comfortaa";
+}
+.sidebar {
+    width: 20%;
+    height: 100%;
+    background: #409cff;
+    color: white;
+    float: left;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+}
+.sidebar h2 {
+    margin: 40px 0 15px 10%;
+}
+.sidebar a {
+    float: left;
+    width: 100%;
+    color: white;
+    padding: 10px 15% 10px;
+}
+.active,
+.sidebar a:hover, .sidebar button:hover {
+    background-color: #196ae3;
+}
+.sidebar button {
+    float: left;
+    width: 100%;
+    background-color: #409cff;
+    color: white;
+    padding: 10px 15% 10px;
+    text-align: left;
+    border: 0;
+    text-decoration: none;
+    outline: none;
+}
+.dropdown-container {
+    /* display: none; */
+    margin-left: 15px;
+}
+.fa-caret-down {
+    float: right;
+}
+
+.content {
+    margin: 40px 2% 40px 22%;
+}
+
+.modal-dialog {
+    width: 60%;
+    position: relative;
+    margin: 2% auto;
+    background: #fff;
+}
+.modalDialog-header {
+    padding: 20px 0 5px 30px;
+    border-bottom: rgba(168, 168, 168, 0.5) solid 2px;
+}
+.modalDialog-content {
+    padding: 20px 20px 20px 20px;
+    border-bottom: rgba(168, 168, 168, 0.5) solid 2px;
+}
+.modalDialog-footer {
+    padding: 0 20px 10px 20px;
+    border-bottom: rgba(168, 168, 168, 0.5) solid 2px;
+    text-align: center;
+}
+.close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: 30px;
+    margin: 20px 20px 5px 0;
+}
+.form input, textarea,
+select {
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.form button {
+    text-transform: uppercase;
+    width: 100%;
+    border: 0;
+    margin-bottom: 5px;
+    padding: 1em;
+    color: #ffffff;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+.form label {
+    font-size: 10px;
+}
+.button-save {
+    background: #409cff;
+}
+.button-save:hover {
+    background: #196ae3;
+}
+.button-delete {
+    background: #f05a4f;
+}
+.button-delete:hover {
+    background: #eb2323;
+}
+.saintek {
+    width: 40%;
+    height: 100%;
+    margin-left: 20%;
+    background: #badbff;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.soshum {
+    width: 40%;
+    margin-left: 60%;
+    height: 100%;
+    background: #3a3b3d;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.box{
+    width: 100%;
+    height: 10%;
+    background: #409cff;
+    color: white;
+    padding: 2em 2em 2em 5em;
+    margin-bottom: 2em;
+}
+.box h1{
+    padding-left: 2em;
+}
+.box span{
+    float: left;
+}
+.box:hover{
+    background: #196ae3;
+}
+
+.button-add{
+    width: 100%;
+    background: #409cff;
+    color: white;
+    padding: 0.5em;
+    border: 0;
+    margin-bottom: 2em;
+}
+.button-add:hover{
+    background: #196ae3;
+}
+.kunci{
+    width: 100%;
+    background: #0d7c38;
+    color: white;
+    padding: 0.5em;
+    border: 0;
+    margin-bottom: 2em;
+}
