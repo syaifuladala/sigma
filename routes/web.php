@@ -41,4 +41,6 @@ Route::get('/admin/insertSoal', function () {
 Route::get('/admin/bio', 'SoalController@showBio');
 Route::get('/admin/mat', 'SoalController@showMat');
 Route::patch('/admin/soal/insert', 'SoalController@store');
-Route::get('/admin/bio/{id}', 'SoalController@show');
+Route::get('/admin/soal/edit/{id}', 'SoalController@show');
+Route::patch('/admin/soal/update', 'SoalController@update');
+Route::delete('/admin/soal/delete', 'SoalController@destroy');

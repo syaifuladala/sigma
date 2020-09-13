@@ -56,27 +56,25 @@ class SoalController extends Controller
 
         Soal::create($request->all());
 
-        if ($id= $request['id_pelajaran']=='bio') {
+        if ($request['id_pelajaran'] == 'bio') {
             return redirect('/admin/bio');
-        } elseif ($id= $request['id_pelajaran']=='mat') {
+        } elseif ($request['id_pelajaran'] == 'mat') {
             return redirect('/admin/mat');
-        } elseif ($id= $request['id_pelajaran']=='kim') {
+        } elseif ($request['id_pelajaran'] == 'kim') {
             return redirect('/admin/kim');
-        } elseif ($id= $request['id_pelajaran']=='fis') {
+        } elseif ($request['id_pelajaran'] == 'fis') {
             return redirect('/admin/fis');
-        } elseif ($id= $request['id_pelajaran']=='eko') {
+        } elseif ($request['id_pelajaran'] == 'eko') {
             return redirect('/admin/eko');
-        } elseif ($id= $request['id_pelajaran']=='sej') {
+        } elseif ($request['id_pelajaran'] == 'sej') {
             return redirect('/admin/sej');
-        } elseif ($id= $request['id_pelajaran']=='sos') {
+        } elseif ($request['id_pelajaran'] == 'sos') {
             return redirect('/admin/sos');
-        } elseif ($id= $request['id_pelajaran']=='geo') {
+        } elseif ($request['id_pelajaran'] == 'geo') {
             return redirect('/admin/geo');
         } else {
             return 0;
         }
-        
-        
     }
 
     /**
@@ -87,8 +85,8 @@ class SoalController extends Controller
      */
     public function show($id)
     {
-        $show = Soal::find($id);
-        return view('admin/editSoal',['show' => $show]);
+        $show = Soal::where('id', $id)->get();
+        return view('admin/editSoal', ['show' => $show]);
         // return $id;
     }
 
@@ -110,9 +108,50 @@ class SoalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Soal::where('id', $request->id)
+            ->update([
+                'nomor' =>              $request->nomor,
+                'id_pelajaran' =>       $request->id_pelajaran,
+                'soal' =>               $request->soal,
+                'soal_gambar' =>        $request->soal_gambar,
+                'A_id' =>               $request->A_id,
+                'A_jawaban' =>          $request->A_jawaban,
+                'A_jawaban_gambar' =>   $request->A_jawaban_gambar,
+                'B_id' =>               $request->B_id,
+                'B_jawaban' =>          $request->B_jawaban,
+                'B_jawaban_gambar' =>   $request->B_jawaban_gambar,
+                'C_id' =>               $request->C_id,
+                'C_jawaban' =>          $request->C_jawaban,
+                'C_jawaban_gambar' =>   $request->C_jawaban_gambar,
+                'D_id' =>               $request->D_id,
+                'D_jawaban' =>          $request->D_jawaban,
+                'D_jawaban_gambar' =>   $request->D_jawaban_gambar,
+                'E_id' =>               $request->E_id,
+                'E_jawaban' =>          $request->E_jawaban,
+                'E_jawaban_gambar' =>   $request->E_jawaban_gambar,
+                'kunci_jawaban' =>      $request->kunci_jawaban
+            ]);
+            if ($request['id_pelajaran'] == 'bio') {
+                return redirect('/admin/bio');
+            } elseif ($request['id_pelajaran'] == 'mat') {
+                return redirect('/admin/mat');
+            } elseif ($request['id_pelajaran'] == 'kim') {
+                return redirect('/admin/kim');
+            } elseif ($request['id_pelajaran'] == 'fis') {
+                return redirect('/admin/fis');
+            } elseif ($request['id_pelajaran'] == 'eko') {
+                return redirect('/admin/eko');
+            } elseif ($request['id_pelajaran'] == 'sej') {
+                return redirect('/admin/sej');
+            } elseif ($request['id_pelajaran'] == 'sos') {
+                return redirect('/admin/sos');
+            } elseif ($request['id_pelajaran'] == 'geo') {
+                return redirect('/admin/geo');
+            } else {
+                return 0;
+            }
     }
 
     /**
@@ -121,9 +160,28 @@ class SoalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Soal::destroy($request->id);
+        if ($request['id_pelajaran'] == 'bio') {
+            return redirect('/admin/bio');
+        } elseif ($request['id_pelajaran'] == 'mat') {
+            return redirect('/admin/mat');
+        } elseif ($request['id_pelajaran'] == 'kim') {
+            return redirect('/admin/kim');
+        } elseif ($request['id_pelajaran'] == 'fis') {
+            return redirect('/admin/fis');
+        } elseif ($request['id_pelajaran'] == 'eko') {
+            return redirect('/admin/eko');
+        } elseif ($request['id_pelajaran'] == 'sej') {
+            return redirect('/admin/sej');
+        } elseif ($request['id_pelajaran'] == 'sos') {
+            return redirect('/admin/sos');
+        } elseif ($request['id_pelajaran'] == 'geo') {
+            return redirect('/admin/geo');
+        } else {
+            return 0;
+        }
     }
 
     public function showBio()

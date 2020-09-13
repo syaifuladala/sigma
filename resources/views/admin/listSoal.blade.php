@@ -14,16 +14,17 @@
     </tr>
     @foreach($soal as $data)
     <tr class="data-row">
-        <td width="10%" align="center" class="nomor">{{ $data->nomor }}</td>
-        <td width="75%" class="soal">{{ $data->soal }}</td>
+        <td width="10%" align="center">{{ $data->nomor }}</td>
+        <td width="75%">{{ $data->soal }}</td>
         <td width="10%" align="center">{{ $data->kunci_jawaban }}</td>
-        <td width="5%" align="center"><a href="bio/{{ $data->id }}" class="clickModal" data-toggle="modal" data-target="#myModal" >Edit </a></td>
+        <td width="5%" align="center"><a href="soal/edit/{{ $data->id }}">Edit</a></td>
+        <!-- <td width="5%" align="center"><a href="#" class="clickModal" data-toggle="modal" data-target="#myModal" >Edit </a></td> -->
     </tr>
     @endforeach
 </table>
 
-<input id="url" type="hidden" value="{{ \Request::url() }}">
-<!-- The Modal -->
+<!-- <input id="url" type="hidden" value="{{ \Request::url() }}">
+
 <div class="modal fade" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -138,24 +139,24 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <script>
-    $('.clickModal').on('click', function() {
-        const id = $(this).data('id');
-        $.ajax({
-            url: "/admin/bio/" + id,
-            type: 'get',
-            dataType: 'json',
-        }).done(function(response) {
-            $("#nomor").val(response.nomor);
-            $("#soal").val(response.soal);
-            $("#kunci_jawaban").val(response.kunci_jawaban);
+    // $('.clickModal').on('click', function() {
+    //     const id = $(this).data('id');
+    //     $.ajax({
+    //         url: "/admin/bio/" + id,
+    //         type: 'get',
+    //         dataType: 'json',
+    //     }).done(function(response) {
+    //         $("#modal-nomor").val(response.nomor);
+    //         $("#modal-soal").val(response.soal);
+    //         $("#kunci_jawaban").val(response.kunci_jawaban);
 
-            $('#myModal').on('shown.bs.modal', function() {
-                $('#myInput').trigger('focus');
-            });
-        });
-    });
+    //         $('#myModal').on('shown.bs.modal', function() {
+    //             $('#myInput').trigger('focus');
+    //         });
+    //     });
+    // });
 </script>
 @endsection

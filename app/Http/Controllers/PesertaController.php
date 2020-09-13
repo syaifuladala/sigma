@@ -80,7 +80,7 @@ class PesertaController extends Controller
      * @param  \App\Peserta  $peserta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Peserta $peserta)
+    public function update(Request $request)
     {
         Peserta::where('id',$request->id)
             ->update([
