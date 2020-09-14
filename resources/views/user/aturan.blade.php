@@ -13,7 +13,7 @@
             </th>
         </tr>
         <tr>
-            <th colspan="2">Penggunaan Sistem</th>
+            <th colspan="2">Petunjuk Sistem</th>
         </tr>
         <tr>
             <td width="5%">1</td>
