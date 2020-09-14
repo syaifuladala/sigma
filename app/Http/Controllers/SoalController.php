@@ -197,4 +197,45 @@ class SoalController extends Controller
         $soal = Soal::where('id_pelajaran', 'mat')->get();
         return view('admin/listSoal', ['soal' => $soal, 'id_pelajaran' => $id_pelajaran]);
     }
+    
+    public function showFis()
+    {
+        $id_pelajaran = "fis";
+        $soal = Soal::where('id_pelajaran', 'fis')->get();
+        return view('admin/listSoal', ['soal' => $soal, 'id_pelajaran' => $id_pelajaran]);
+    }
+
+    public function showKim()
+    {
+        $id_pelajaran = "kim";
+        $soal = Soal::where('id_pelajaran', 'kim')->get();
+        return view('admin/listSoal', ['soal' => $soal, 'id_pelajaran' => $id_pelajaran]);
+    }
+    public function showSos()
+    {
+        $id_pelajaran = "sos";
+        $soal = Soal::where('id_pelajaran', 'sos')->get();
+        return view('admin/listSoal', ['soal' => $soal, 'id_pelajaran' => $id_pelajaran]);
+    }
+
+    public function showSej()
+    {
+        $id_pelajaran = "sej";
+        $soal = Soal::where('id_pelajaran', 'sej')->get();
+        return view('admin/listSoal', ['soal' => $soal, 'id_pelajaran' => $id_pelajaran]);
+    }
+    
+    public function showEko()
+    {
+        $id_pelajaran = "eko";
+        $soal = Soal::where('id_pelajaran', 'eko')->get();
+        return view('admin/listSoal', ['soal' => $soal, 'id_pelajaran' => $id_pelajaran]);
+    }
+
+    public function showGeo()
+    {
+        $id_pelajaran = "geo";
+        $soal = Soal::where('id_pelajaran', 'geo')->get();
+        return view('admin/listSoal', ['soal' => $soal, 'id_pelajaran' => $id_pelajaran]);
+    }
 }

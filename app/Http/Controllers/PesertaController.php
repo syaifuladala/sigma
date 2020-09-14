@@ -12,11 +12,7 @@ class PesertaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function daftar()
-    {
-        return view('user/daftar');
-    }
-
+    
     public function index()
     {
         $peserta = Peserta::all();

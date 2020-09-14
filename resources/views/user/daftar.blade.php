@@ -18,5 +18,8 @@
         <input type="hidden" name="status" value="0">
         <button type="submit">Daftar</button>
     </form>
+    <div class="link-login">
+        <p>Sudah mendaftar?<a href="/login"> Masuk</a> disini</p>
+    </div>
 </div>
 @endsection
