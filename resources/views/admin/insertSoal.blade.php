@@ -1,5 +1,5 @@
 @extends('layout/admin')
-@section('title','Input Soal Saintek Biologi')
+@section('title','Input Soal')
 @section('saintek','active')
 
 @section('content')

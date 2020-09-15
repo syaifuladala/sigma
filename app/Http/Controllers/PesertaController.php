@@ -12,7 +12,7 @@ class PesertaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     public function index()
     {
         $peserta = Peserta::all();
@@ -42,7 +42,11 @@ class PesertaController extends Controller
             'sekolah' => 'required',
             'id_tipe_ujian' => 'required',
         ]);
-
+        $characters = '123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $result = '';
+        for ($i = 0; $i < 5; $i++)
+            $result .= $characters[mt_rand(0, 34)];
+        $request['token'] = $result;
         Peserta::create($request->all());
         return var_dump($request);
     }
@@ -78,7 +82,7 @@ class PesertaController extends Controller
      */
     public function update(Request $request)
     {
-        Peserta::where('id',$request->id)
+        Peserta::where('id', $request->id)
             ->update([
                 'email' => $request->email,
                 'nama' => $request->nama,
@@ -86,7 +90,7 @@ class PesertaController extends Controller
                 'id_tipe_ujian' => $request->id_tipe_ujian,
                 'status' => $request->status
             ]);
-        return redirect('/admin/peserta'); 
+        return redirect('/admin/peserta');
     }
 
     /**

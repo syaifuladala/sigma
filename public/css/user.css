@@ -7,7 +7,7 @@ body {
 }
 #sidebar-wrapper {
     min-height: 100vh;
-    margin-left: -15rem;
+    margin-left: -18rem;
     -webkit-transition: margin 0.25s ease-out;
     -moz-transition: margin 0.25s ease-out;
     -o-transition: margin 0.25s ease-out;
@@ -18,7 +18,7 @@ body {
     font-size: 1.2rem;
 }
 #sidebar-wrapper .list-group {
-    width: 15rem;
+    width: 18rem;
 }
 #page-content-wrapper {
     min-width: 100vw;
@@ -26,6 +26,69 @@ body {
 #wrapper.toggled #sidebar-wrapper {
     margin-left: 0;
 }
+.btn-sidebar {
+    border: solid 1px white;
+    color: white;
+}
+.navbar {
+    background-color: #196ae3 !important;
+    padding: 10px;
+}
+.nav-link:hover {
+    border-bottom: solid 0.5px white;
+}
+.sidebar {
+    background-color: #196ae3 !important;
+}
+.sidebar-heading {
+    color: white;
+}
+.card {
+    color: white;
+    background-color: #196ae3;
+}
+.card-body {
+    background-color: #1d8aff;
+}
+.card button {
+    color: white;
+}
+.card button:hover {
+    color: white;
+}
+.page-link {
+    color: white;
+    background-color: #1d8aff;
+    border-color: #196ae3;
+}
+.page-link:hover {
+    background-color: #196ae3;
+    border-color: #1d8aff;
+    color: white;
+}
+.flex-list {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.flex-list li {
+    flex: auto;
+    width: 40px;
+}
+.container-fluid{
+    padding: 2em;
+}
+.time-user{
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    border-bottom: solid thin #196ae3;
+}
+
+
+
 @media (min-width: 768px) {
     #sidebar-wrapper {
         margin-left: 0;
@@ -35,36 +98,6 @@ body {
         width: 100%;
     }
     #wrapper.toggled #sidebar-wrapper {
-        margin-left: -15rem;
+        margin-left: -18rem;
     }
-}
-.btn-sidebar {
-    border: solid 1px white;
-    color: white;
-}
-.navbar{
-    background-color: #196ae3 !important;
-    padding: 10px;
-}
-.nav-link:hover{
-    border-bottom: solid 0.5px white;
-}
-.sidebar{
-    background-color: #196ae3 !important;
-}
-.sidebar-heading{
-    color: white;
-}
-.card{
-    color: white;
-    background-color: #196ae3;
-}
-.card-body{
-    background-color: #1d8aff;
-}
-.card button{
-    color: white;
-}
-.card button:hover{
-    color: white;
 }

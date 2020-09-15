@@ -26,10 +26,10 @@ Route::patch('/daftar/output', 'PesertaController@store');
 Route::get('/login', function () {
     return view('/user/login');
 });
-Route::get('/adlog', function () {
+Route::get('/admin', function () {
     return view('/admin/login');
 });
-Route::patch('/adlog/login', 'AdminController@login');
+Route::patch('/admin/login', 'AdminController@login');
 Route::patch('/user/login', 'UserController@login');
 // Route to admin peserta
 Route::get('/admin/peserta', 'PesertaController@index');
@@ -55,4 +55,11 @@ Route::get('/admin/soal/edit/{id}', 'SoalController@show');
 Route::patch('/admin/soal/update', 'SoalController@update');
 Route::delete('/admin/soal/delete', 'SoalController@destroy');
 // Route to Ujian Try-Out
-Route::get('/user/ujian', 'UjianController@index');
+Route::get('/user/ujian', function () {
+    if (!session()->has('email')) {
+        return view('user/login');
+    }else{
+        return redirect('/session/user/ujian');
+    }
+});
+Route::get('/session/user/ujian', 'UjianController@index');

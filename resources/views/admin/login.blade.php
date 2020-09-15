@@ -4,7 +4,7 @@
 <div class="form">
     <h2>Login Admin</h2>
     <img src="/img/stakeholder-logo.png" alt="Logo Sigma">
-    <form class="login-form" action="/adlog/login" method="POST">
+    <form class="login-form" action="/admin/login" method="POST">
         @csrf
         @method('patch')
         <input type="text" placeholder="Username" name="username">

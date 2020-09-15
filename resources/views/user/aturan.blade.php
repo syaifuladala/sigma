@@ -8,8 +8,8 @@
     </center>
     <table class="table">
         <tr>
-            <th colspan="2" align="center">Email : userq@mail.com <br>
-                            Ujian : saintek
+            <th colspan="2" align="center">Email : {{session('email')}} <br>
+                            Ujian : {{session('id_tipe_ujian')}}
             </th>
         </tr>
         <tr>
