@@ -17,7 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
-<body onload="init()">
+<body>
 
     <div class="d-flex" id="wrapper">
 
@@ -26,88 +26,35 @@
             <div class="sidebar-heading">Subjek Pelajaran</div>
             <div class="list-group list-group-flush">
                 <div class="accordion" id="accordionExample">
+                    @foreach ($pelajaran as $subjek)
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Pelajaran #1
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse{{$loop->iteration}}">
+                                    {{$subjek->keterangan}}
                                 </button>
                             </h2>
                         </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="collapse{{$loop->iteration}}" class="collapse
+                            <?php if ($loop->iteration == '1') {
+                                echo 'show';
+                            } ?>
+                            " aria-labelledby="heading{{$loop->iteration}}" data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul class="pagination flex-list">
-                                    <li><a class="page-link" href="#">1</a></li>
-                                    <li><a class="page-link" href="#">2</a></li>
-                                    <li><a class="page-link" href="#">3</a></li>
-                                    <li><a class="page-link" href="#">4</a></li>
-                                    <li><a class="page-link" href="#">5</a></li>
-                                    <li><a class="page-link" href="#">6</a></li>
-                                    <li><a class="page-link" href="#">7</a></li>
-                                    <li><a class="page-link" href="#">8</a></li>
-                                    <li><a class="page-link" href="#">9</a></li>
-                                    <li><a class="page-link" href="#">10</a></li>
-                                    <li><a class="page-link" href="#">11</a></li>
-                                    <li><a class="page-link" href="#">12</a></li>
-                                    <li><a class="page-link" href="#">13</a></li>
-                                    <li><a class="page-link" href="#">14</a></li>
-                                    <li><a class="page-link" href="#">15</a></li>
+                                    @foreach ($soal[$subjek->id_pelajaran] as $data)
+                                    <li><a class="page-link" href="#" id="page-soal" onchange="showSoal(this.<?= $data->id; ?>)">{{$data->nomor}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-                                    Pelajaran #2
-                                </button>
-                            </h2>
-                        </div>
-
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
-                                    Pelajaran #3
-                                </button>
-                            </h2>
-                        </div>
-
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingFour">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
-                                    Pelajaran #4
-                                </button>
-                            </h2>
-                        </div>
-
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit.
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-        <!-- /#sidebar-wrapper -->
 
-        <!-- Page Content -->
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <button class="btn btn-sidebar" id="menu-toggle">
@@ -134,36 +81,35 @@
             </nav>
 
             <div class="container-fluid">
-                <div class="time-user">
+                <div class="user-info">
                     <table width="100%">
                         <tr>
                             <td width="35%">{{session('email')}}</td>
                             <td width="20%">{{session('id_tipe_ujian')}}</td>
                             <td width="35%">
-                                <div id="clockdiv">
-                                    <span class="hours"></span> :
-                                    <span class="minutes"></span> :
-                                    <span class="seconds"></span>
-                                </div>
+                                <span id="time">--:--:--</span>
                             </td>
                         </tr>
                     </table>
                 </div>
-                <h1 class="mt-4">Simple Sidebar</h1>
-                <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+                <div class="content-ujian">
+                    <div id="nomor-soal"></div>
+                    <table border='1' id='userTable' style='border-collapse: collapse;'>
+                        <thead>
+                            <tr>
+                                <th>S.no</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
 
-    <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Menu Toggle Script -->
     <script>
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
@@ -172,44 +118,83 @@
     </script>
 
     <script>
-        function getTimeRemaining(endtime) {
-            var t = Date.parse(endtime) - Date.parse(new Date());
-            var seconds = Math.floor((t / 1000) % 60);
-            var minutes = Math.floor((t / 1000 / 60) % 60);
-            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-            return {
-                'total': t,
-                'hours': hours,
-                'minutes': minutes,
-                'seconds': seconds
-            };
+        function startTimer(duration, display) {
+            var timer = duration,
+                hours, minutes, seconds;
+            setInterval(function() {
+                hours = parseInt(timer / 60 / 60, 10);
+                minutes = parseInt(timer / 60 % 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
         }
 
-        function initializeClock(id, endtime) {
-            var clock = document.getElementById(id);
-            var hoursSpan = clock.querySelector('.hours');
-            var minutesSpan = clock.querySelector('.minutes');
-            var secondsSpan = clock.querySelector('.seconds');
 
-            function updateClock() {
-                var t = getTimeRemaining(endtime);
-
-                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-                if (t.total <= 0) {
-                    clearInterval(timeinterval);
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
                 }
             }
-
-            updateClock();
-            var timeinterval = setInterval(updateClock, 1000);
+            return "";
         }
 
-        var deadline = new Date(Date.parse(new Date()) + 2 * 60 * 60 * 1000);
-        initializeClock('clockdiv', deadline);
+        var cnt = 2 * 60 * 60;
+
+        function counter() {
+            minutes = cnt / 60;
+            if (getCookie("cnt") > 0) {
+                cnt = getCookie("cnt");
+            }
+            cnt -= 1;
+
+            document.cookie = "cnt=" + cnt;
+            jQuery().val(getCookie("cnt"));
+            display = document.querySelector('#time');
+            startTimer(cnt, display);
+
+            if (cnt > 0) {
+                setTimeout(counter, 1000);
+            }
+
+        }
+        // counter();
     </script>
+
+    <script>
+        $('#page-soal').on('click', function() {
+            const id = $(this).data('id');
+            $.ajax({
+                url: "/session/user/ujian/" + id,
+                type: 'get',
+                dataType: 'json',
+            }).done(function(response) {
+                var nomor = response.show.nomor;
+
+                var tr_str = "<tr>" +
+                   "<td align='center'>" + nomor + "</td>"
+                 "</tr>";
+                 $("#userTable tbody").append(tr_str);
+            });
+        });
+    </script>
+
 
 </body>
 

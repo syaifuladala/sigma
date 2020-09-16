@@ -14,6 +14,7 @@ class CreatePelajaranTable extends Migration
     public function up()
     {
         Schema::create('pelajaran', function (Blueprint $table) {
+            $table->string('urutan');
             $table->string('id_pelajaran')->primary();
             $table->string('keterangan');
             $table->string('id_tipe_ujian');

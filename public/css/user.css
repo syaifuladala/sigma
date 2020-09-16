@@ -80,13 +80,17 @@ body {
 .container-fluid{
     padding: 2em;
 }
-.time-user{
+.user-info{
     width: 100%;
     height: fit-content;
     text-align: center;
     border-bottom: solid thin #196ae3;
+    margin-bottom: 2em;
 }
-
+.content-ujian{
+    width: 100%;
+    height: 100%;
+}
 
 
 @media (min-width: 768px) {

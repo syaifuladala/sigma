@@ -63,3 +63,4 @@ Route::get('/user/ujian', function () {
     }
 });
 Route::get('/session/user/ujian', 'UjianController@index');
+Route::get('/session/user/ujian/{id}', 'UjianController@show');
